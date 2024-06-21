@@ -1,0 +1,32 @@
+{
+  "name": "schaatsbingo-nl",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "set NODE_OPTIONS=--openssl-legacy-provider && nuxt",
+    "dev-linux": "export NODE_OPTIONS=--openssl-legacy-provider && nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@pinia/nuxt": "^0.5.1",
+    "axios": "^1.7.2",
+    "core-js": "^3.37.1",
+    "guid-typescript": "^1.0.9",
+    "nuxt": "^3.12.2",
+    "pinia": "^2.1.7",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3",
+    "vue-server-renderer": "^2.7.16",
+    "vue-template-compiler": "^2.7.16"
+  },
+  "devDependencies": {
+    "@nuxt/types": "^2.17.4",
+    "@nuxt/typescript-build": "^2.1.0",
+    "typescript": "^5.5.2"
+  }
+}
