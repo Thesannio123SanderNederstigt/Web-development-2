@@ -11,7 +11,7 @@ export function post(path: string, body: any): Promise<AxiosResponse<any>> {
     return axios.post(`${HOSTNAME}${path}`, JSON.stringify(body));
 }
 
-export function put(path: string, body: any): Promise<null> {
+export function put(path: string, body: any): Promise<AxiosResponse<any>> { //Promise<null> {
     return axios.put(`${HOSTNAME}${path}`, JSON.stringify(body));
 }
 
