@@ -8,39 +8,79 @@ import { type User } from '@/src/User';
 export const useMainStore = defineStore('main', {
     state: () => ({
         authToken: sessionStorage.getItem("authToken") ?? "",
+        //authToken: '',
+        //stateUser: <User>{},
         stateUser: <User>JSON.parse(sessionStorage.getItem("stateUser") ?? "{}"),
         //stateuser: Object as PropType<User>
+        //currentPage: sessionStorage.getItem("currentPage") ?? "",
+        currentPage: 'start', //ik kan ook dit gewoon vullen bij de created() van iedere pagina
     }),
     getters: {
         getToken: (state) => state.authToken,
-        getUser: (state) => state.stateUser
+        getUser: (state) => state.stateUser,
+        getCurrentPage: (state) => state.currentPage,
         //getUser: (state) => <User>state.stateUser
     },
     actions: {
         async login(details: { username: string, password: string }): Promise<boolean> {
             try {
-                const res = await post('/user/login', details).then( (res) => { return JSON.parse(res.data)});
+                let res = await post('/user/login', details).then( (res) => { return JSON.parse(res.data)});
 
-                //console.log(`result: ${res}`);
+                /*console.log(`result: ${res}`);
+                console.log(`what the: ${res.errorMessage}`);
+                console.log(`token: ${res.jwt}`);*/
+
+                if(res.errorMessage) {
+                    return false;
+                } /*else {
+                    console.log(`token: ${res.jwt}`);
+                }*/
+
 
                 this.authToken = res.jwt;
 
-                //TODO: kiezen; Welke van deze drie opties ga ik kiezen (voor beide props van de state)?
+
+
                 sessionStorage.setItem("authToken", res.jwt);
-                //this.$state.authToken = res.accessToken;
-                //this.authToken = res.accessToken;
+
                 setToken(res.jwt);
     
-                const user = await get(`/user/getOne/${res.userId}`).then( (user) => { return JSON.parse(user.data)});
+                let user = await get(`/user/getOne/${res.userId}`).then( (user) => { return JSON.parse(user.data)});
 
+
+                if(!sessionStorage.getItem("stateUser")) {
+                    this.stateUser = <User>user;
+                    sessionStorage.setItem("stateUser", JSON.stringify(user));
+                }
                 
+                /*if(!(sessionStorage.getItem("stateUser"))) {
+                    sessionStorage.setItem("stateUser", JSON.stringify(user));
+                }*/
+
+
+
+                /*if(sessionStorage.getItem("stateUser")) {
+                    this.stateUser = <User>user;
+                }*/
+
+                //dit hoeft niet: de api checkt al bij login op of de gebruiker bestaat of niet, hoeft hier dus niet halsoverkop uitgelogd te worden!
+                /*if(!(user) || !(user.id)) {
+                    sessionStorage.clear();
+                }*/
+
+
+
                 /*let result = user.json();
 
                 console.log(`first result: ${result}`);*/
 
-                this.stateUser = <User>user;//JSON.stringify(user);
 
-                sessionStorage.setItem("stateUser", JSON.stringify(user));
+
+                //this.stateUser = <User>user;//JSON.stringify(user);
+
+                //sessionStorage.setItem("stateUser", JSON.stringify(user));
+
+
 
                 //sessionStorage.setItem("stateuser", <User>JSON.stringify(user));
 
@@ -58,6 +98,13 @@ export const useMainStore = defineStore('main', {
                 return false;
             }
         },
+        /*logout() {
+            //de eerste twee regels doen hier nu niets, want de state is gevuld met sessionStorage vars/props, dus ook de this.stateProp regels in de methodes hierboven
+            //zijn nu nutteloos...whoops, ik zal aan het einde van development, in cleanup/straks gaan kiezen om OF session of direct state management storage te gebruiken!
+            this.authToken = "";
+            this.stateUser = <User>{};
+            sessionStorage.clear();
+        }*/
     },
 })
 

@@ -14,12 +14,6 @@ export default defineComponent({
             displayLoginForm: false,
             displayRegisterForm: false,
             userCreated: false
-            //isValid: false,
-            //loginError: false,
-            //usernameInput: "",
-            //emailInput: "",
-            //passwordInput: "", //TODO verplaats onderstaande email Regular expression naar het te maken register.vue component wat op deze pagina gebruikt gaat worden
-            //emailRegex: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,24}))$/,
         }
     },
     beforeCreate() {
@@ -57,13 +51,11 @@ export default defineComponent({
                     <section class="card border border-light-subtle rounded-3 shadow-sm">
                         <section class="card-body p-3 p-md-4 p-xl-5">
                             <section class="text-center mb-3">
-                                <img src="assets/schaatsbingo-logo.svg" class="website-logo-image" alt="Schaatsbingo.nl Logo">
+                                <img src="@/assets/schaatsbingo-logo.svg" class="website-logo-image" alt="Schaatsbingo.nl Logo">
                             </section>
                             <h1 class="website-logo-text mb-3">Welkom bij Schaatsbingo.nl!</h1>
 
                             <p v-if="userCreated" class="text-center text-secondary mb-4 website-logo-text successtext">Account succesvol aangemaakt!</p>
-                            <!--<h2 v-if="displayLoginForm" class="text-center text-secondary mb-4 website-logo-text">Inloggen</h2>
-                            <h2 v-if="displayRegisterForm" class="text-center text-secondary mb-4 website-logo-text">Nieuwe gebruiker</h2>-->
 
                             <section v-if="displayButtons" class="row gy-2 gy-xxl-2 mt-2 flex-categories-container">
                                 <section class="col-12 col-md-6 col-xxl-6 mb-3">
@@ -93,6 +85,7 @@ export default defineComponent({
 body {
     display: block !important;
 }
+
 .website-logo-image {
     width: 200px;
     height: 190px;

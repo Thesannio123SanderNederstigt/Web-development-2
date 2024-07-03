@@ -16,12 +16,12 @@ footer {
 }
   
 .headerfooter {
-    background-color: #002060!important;
+    background-color: #4472C4 !important;
     min-width: 100% !important;
 }
 
 .headernavbar {
-    background-color: #002060!important;
+    background-color: #4472C4 !important; //#002060
     font-family: 'Berlin Sans FB' !important;
     color: white !important;
     border: none !important;
@@ -34,11 +34,11 @@ footer {
 }
 
 #offcanvas-bar-header {
-    background-color: #1f0c6a !important;
+    background-color: #4472C4 !important; //#1f0c6a 
 }
 
 #offcanvas-bar-body {
-    background-color: #2d60b9 !important;
+    background-color: #1f0c6a !important; //#2d60b9
 }
 
 @media screen and (min-width: 992px)
@@ -46,6 +46,13 @@ footer {
     #offcanvas-bar-body {
         border-radius: var(--bs-border-radius-lg);
         max-height: 2.35em;
+    }
+}
+
+@media screen and (max-width: 960px)
+{
+    #logout-button {
+        margin-top: 0.75em;
     }
 }
 

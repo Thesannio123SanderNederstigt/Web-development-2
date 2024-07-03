@@ -34,15 +34,20 @@ export default defineComponent({
                 //if success: this.displayUserCreated();
                 //if( await post('/user/create', { username: this.newUserNameInput, password: this.newPasswordInput, email: this.newEmailInput }).then((response) => { return JSON.parse(response.data)})) {
                 //if( await post('/user/create', { username: this.newUserNameInput, password: this.newPasswordInput, email: this.newEmailInput })) {
-                let response = await post('/user/create', { 
+                let res = await post('/user/create', { 
                     username: this.newUserNameInput, 
                     password: this.newPasswordInput, 
                     email: this.newEmailInput 
-                }).then((response) => { return JSON.parse(response.data)});
+                }).then((res) => { return JSON.parse(res.data)});
+
+                if(res.errorMessage) {
+                    this.registerError = true;
+                    return false;
+                }
 
                 //if(response !== null && response !== "" && response.id !== ""){
-                if(response != null && response.id != "") {
-                    console.log(response);
+                if(res != null && res.id != "") {
+                    console.log(res);
                     this.displayUserCreated();
                 } else {
                     this.registerError = true;
