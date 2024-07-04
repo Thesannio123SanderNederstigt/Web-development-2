@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config';
+import svgLoader from "vite-svg-loader";
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -22,9 +23,9 @@ export default defineNuxtConfig({
       link: [
         { 
           rel: 'icon', 
-          type: 'image/svg',
+          type: 'image/x-icon', //'image/svg+xml'
           sizes: 'any', 
-          href: '@/assets/schaatsbingo-logo.svg'
+          href: '../static/favicon.ico' //'../assets/schaatsbingo-logo.svg' //@/~
         },
         {
           rel: 'stylesheet',
@@ -88,7 +89,17 @@ export default defineNuxtConfig({
       baseURL: "http://localhost:80/api"
     }
   },*/
-  
+  /*vite: {
+    buildModules: ["@nuxtjs/svg"],
+    plugins: [svgLoader({
+      defaultImport: 'raw',
+    })]
+  },*/
+
+  vite: {
+    buildModules: ["@nuxtjs/svg"],
+    plugins: [svgLoader({defaultImport: 'url'})],
+  },
     // Plugins to run before rendering page
     plugins: [
       '~/plugins/pinia',
@@ -106,6 +117,8 @@ export default defineNuxtConfig({
       '@pinia/nuxt',
     ],
 
+    //buildModules: ["@nuxtjs/svg"],
+
     /*modules: [
       //'@pinia/nuxt',
       ['@pinia/nuxt', { autoImports: ['defineStore'] }]
@@ -116,7 +129,7 @@ export default defineNuxtConfig({
   
     // Build Configuration
     build: {
-    }
+    },
 })
 
 /*
