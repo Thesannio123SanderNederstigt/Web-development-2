@@ -30,7 +30,8 @@ export default defineComponent({
         }
     },
     methods: {
-        setCategoryData(category: number){
+        setCategoryData(category: number) 
+        {
             //switch om de return vars te setten (op basis van of category 0,1,2 of 3 is dus)
             switch(category)
             {

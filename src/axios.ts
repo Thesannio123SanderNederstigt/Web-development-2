@@ -2,8 +2,11 @@ import axios, { AxiosHeaders, type AxiosRequestConfig } from "axios";
 
 export function setToken(token: string)
 {
-    
+    //axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+
+
     (config.headers as AxiosHeaders).set("Authorization", `Bearer ${token}`);
+
     /*(config.headers as AxiosHeaders).set("Access-Control-Allow-Origin", 'true');
     (config.headers as AxiosHeaders).set("Content-Type", 'application/json');
     (config.headers as AxiosHeaders).set("credentials", 'same-origin');*/

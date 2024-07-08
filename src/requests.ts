@@ -15,6 +15,6 @@ export function put(path: string, body: any): Promise<AxiosResponse<any>> { //Pr
     return axios.put(`${HOSTNAME}${path}`, JSON.stringify(body));
 }
 
-export function del(path: string): Promise<null> {
+export function del(path: string): Promise<AxiosResponse<any>> { ////Promise<null> {
     return axios.delete(`${HOSTNAME}${path}`);
 }

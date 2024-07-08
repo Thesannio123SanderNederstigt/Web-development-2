@@ -1,8 +1,7 @@
 import { defineStore } from 'pinia';
 //import { GetterTree, ActionTree, MutationTree } from 'vuex';
 import { setToken } from '@/src/axios';
-import { post } from '@/src/requests';
-import { get } from '@/src/requests';
+import { get, post } from '@/src/requests';
 import { type User } from '@/src/User';
 
 export const useMainStore = defineStore('main', {
@@ -98,6 +97,9 @@ export const useMainStore = defineStore('main', {
                 return false;
             }
         },
+        autoLogin() {
+            setToken(this.getToken);
+        }
         /*logout() {
             //de eerste twee regels doen hier nu niets, want de state is gevuld met sessionStorage vars/props, dus ook de this.stateProp regels in de methodes hierboven
             //zijn nu nutteloos...whoops, ik zal aan het einde van development, in cleanup/straks gaan kiezen om OF session of direct state management storage te gebruiken!

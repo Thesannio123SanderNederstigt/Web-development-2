@@ -86,7 +86,7 @@ export default defineComponent({
                                     <li class="nav-item" id="nav-item-home">
                                         <a :class="[currentPage == 'home' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" aria-current="page" @click="navToPage('/')">Start</a>
                                     </li>
-                                    <li class="nav-item">
+                                    <li class="nav-item" id="nav-item-bingokaart">
                                         <a :class="[currentPage == 'bingokaart' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/bingokaarten')">Bingokaarten</a>
                                     </li>
                                     <li class="nav-item">
@@ -128,7 +128,7 @@ export default defineComponent({
 
     @media screen and (max-width: 1250px)
     {
-        #nav-item-home, #nav-item-club, #nav-item-account {
+        #nav-item-home, #nav-item-bingokaart, #nav-item-club, #nav-item-account {
             margin-top: 0.75em;
         }
     }

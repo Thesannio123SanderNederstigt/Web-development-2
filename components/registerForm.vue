@@ -47,7 +47,7 @@ export default defineComponent({
 
                 //if(response !== null && response !== "" && response.id !== ""){
                 if(res != null && res.id != "") {
-                    console.log(res);
+                    //console.log(res);
                     this.displayUserCreated();
                 } else {
                     this.registerError = true;

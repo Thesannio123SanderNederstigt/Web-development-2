@@ -25,6 +25,8 @@ export default defineComponent({
     beforeCreate() {
         if (this.$store.$state.authToken === "") {
             this.$router.replace({ path: "/login"/*, query: { next: "/" }*/ });
+        } else if (this.$store.$state.authToken != "") {
+            this.$store.autoLogin();
         }
     },
     created() {
@@ -52,7 +54,7 @@ export default defineComponent({
                     <h2 class="text-center text-secondary mb-4 mt-4 website-logo-text">Kies een onderstaande categorie om naartoe te gaan</h2>
 
                     <section class="row gy-2 gy-xxl-2 mt-2 mb-5 flex-categories-container">
-                        <HomepageCategory v-for="category in categories" :key="category" :category="category" @goToPage="goToPage"/>
+                        <HomepageCategory v-for="category in categories" :key="category" :category="category" @goToPage="goToPage" />
                     </section>
                 </section>
             </section>

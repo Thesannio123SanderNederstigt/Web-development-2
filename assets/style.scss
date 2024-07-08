@@ -141,6 +141,8 @@ footer {
 }
 
 .bingo-table-columns {
+    min-height: 5em !important;
+    margin-top: 1.35rem !important;
     border: none;
     outline: none;
     vertical-align: middle;
@@ -170,8 +172,6 @@ footer {
 
 .bingo-club-description-column {
     min-width: 50rem !important;
-    min-height: 4em !important;
-    margin-top: 1.35rem !important;
 }
 
 .bingo-nieuw-header-text {
@@ -182,13 +182,13 @@ footer {
     padding: 1rem 0.5rem !important;
 }
 
-#bingocards-table-section, #carditems-table-section, #sportsclubs-table-section {
+/*#bingocards-table-section, #carditems-table-section, #sportsclubs-table-section {
     display: none !important;
 }
 
 .bingo-subtable-text {
     display: flex !important;
-}
+}*/
 
 select, input, .bingo-table-buttons, .bingo-table-add-button {
     margin-bottom: 1.1rem !important;

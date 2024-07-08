@@ -23,9 +23,10 @@ export default defineNuxtConfig({
       link: [
         { 
           rel: 'icon', 
-          type: 'image/x-icon', //'image/svg+xml'
-          sizes: 'any', 
-          href: '../static/favicon.ico' //'../assets/schaatsbingo-logo.svg' //@/~
+          href: '../assets/schaatsbingo-logo.svg?raw', //'../static/favicon.ico' //'../assets/schaatsbingo-logo.svg' //@/~ //?component/?url/?raw
+          sizes: 'any',
+          type: 'image/svg+xml' //'image/x-icon', //'image/svg'
+
         },
         {
           rel: 'stylesheet',
@@ -103,6 +104,7 @@ export default defineNuxtConfig({
     // Plugins to run before rendering page
     plugins: [
       '~/plugins/pinia',
+      //'~/plugins/axios'
     ],
 
     css: [
