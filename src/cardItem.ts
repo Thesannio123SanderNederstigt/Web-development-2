@@ -4,6 +4,6 @@ export interface cardItem
     content: string
     category: number
     points: number
-    isPremiumItem: boolean
+    isPremiumItem: number
     checkedOff?: boolean
 }

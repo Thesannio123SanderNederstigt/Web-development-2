@@ -22,11 +22,10 @@ export default defineNuxtConfig({
       ],
       link: [
         { 
-          rel: 'icon', 
-          href: '../assets/schaatsbingo-logo.svg?raw', //'../static/favicon.ico' //'../assets/schaatsbingo-logo.svg' //@/~ //?component/?url/?raw
+          rel: 'icon', //_nuxt
+          href: '/favicon.svg', //'/_nuxt/schaatsbingo-logo.D3qhIVnu.svg', //'assets/schaatsbingo-logo.svg', //'../static/favicon.ico' //'../assets/schaatsbingo-logo.svg' //@/~ //?component/?url/?raw
           sizes: 'any',
-          type: 'image/svg+xml' //'image/x-icon', //'image/svg'
-
+          type: 'image/svg+xml' //'image/x-icon', //'image/svg+xml'
         },
         {
           rel: 'stylesheet',

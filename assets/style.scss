@@ -150,12 +150,12 @@ footer {
     resize: none !important;
     width: 100% !important;
     word-wrap: break-word;
-    word-break: break-all;
+    //word-break: break-all;
 }
 
 .bingo-id-column {
     min-width: 10rem !important;
-    margin-right: 1rem !important;
+    //margin-right: 1rem !important;
 }
 
 .bingo-email-column {
@@ -163,7 +163,7 @@ footer {
 }
 
 .bingo-content-column {
-    min-width: 55rem !important;
+    min-width: 20rem !important;
 }
 
 .bingo-clubname-column {

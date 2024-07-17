@@ -56,7 +56,6 @@ export default defineComponent({
                 console.error(e);
                 return false;
             }
-
         },
         validate()
         {
@@ -120,4 +119,5 @@ export default defineComponent({
 </template>
 
 <style scoped>
+
 </style>

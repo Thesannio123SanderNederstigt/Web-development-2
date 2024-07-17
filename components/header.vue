@@ -90,7 +90,7 @@ export default defineComponent({
                                         <a :class="[currentPage == 'bingokaart' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/bingokaarten')">Bingokaarten</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a :class="[currentPage == 'kaartInvullen' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/kaart-invullen')">Kaart invullen</a>
+                                        <a :class="[currentPage == 'kaartInvullen' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/kaartInvullen')">Kaart invullen</a>
                                     </li>
                                     <li class="nav-item" id="nav-item-club">
                                         <a :class="[currentPage == 'sportclubs' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/sportclubs')">Sportclubs</a>
