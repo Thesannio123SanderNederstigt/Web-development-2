@@ -22,6 +22,8 @@ import { type cardItem } from "@/src/cardItem"; //
 
 export default defineComponent({
     components: {
+        Header,
+        Footer,
         BingocardRow,
         NewBingocardRow,
         GenerateBingocard,
@@ -58,7 +60,7 @@ export default defineComponent({
         }
     },
     created() {
-        this.$store.$state.currentPage = 'bingokaart';
+        this.$store.$state.currentPage = 'bingokaarten';
 
         this.userBingocards = this.$store.$state.stateUser.bingocards;
 
@@ -800,7 +802,7 @@ export default defineComponent({
     color: #1f0c6a !important;
 }
 
-@media screen and (min-width: 960px)
+@media screen and (min-width: 1171px)
 {
     #carditems-table-title-id-text {
         margin-left: 0.5em !important;

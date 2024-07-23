@@ -12,7 +12,15 @@ export const useMainStore = defineStore('main', {
         stateUser: <User>JSON.parse(sessionStorage.getItem("stateUser") ?? "{}"),
         //stateuser: Object as PropType<User>
         //currentPage: sessionStorage.getItem("currentPage") ?? "",
-        currentPage: 'start', //ik kan ook dit gewoon vullen bij de created() van iedere pagina
+        currentPage: 'start', 
+
+        //straks: voor de bingokaart invul pagina als ik dynamisch iets wil gaan bijhouden welke kaart er hoe is ingevuld/geklikt, 
+        //wellicht toch in de store state wat gaan doen? 
+        
+        //(straks tabel en bingocardRow component gebruiken op kaartInvullen pagina voor selecteren van een kaart),
+        //daarna een component wat daarbinnen ook een component gebruikt om de bingokaart weer te geven en interactief te maken 
+        //voor design straks googlen op dingen als: vueJS/nuxt components bingocard website, html/css/bootstrap design bingocard webpage ofzo
+        //(methoden gaan maken omom bingo te detecteren natuurlijk) (verticale, horizontale of diagonale bingo kunnen spotten straks? (wie weet, we'll see how far we get...))
     }),
     getters: {
         getToken: (state) => state.authToken,

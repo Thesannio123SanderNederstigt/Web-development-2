@@ -7,7 +7,7 @@ export default defineComponent({
         bingocard: {
             type: Object as PropType<Bingocard>,
             required: true,
-        }
+        },
     },
     data() {
         return {
@@ -17,6 +17,7 @@ export default defineComponent({
             formaat: this.bingocard.size,
             aanmaakDatum: this.bingocard.creationDate,
             laatstBekeken: this.bingocard.lastAccessedOn,
+            page: this.$store.$state.currentPage,
         }
     },
     methods: {
@@ -74,10 +75,13 @@ export default defineComponent({
     	<td>
     		<textarea class="bingo-table-columns">{{ laatstBekeken }}</textarea>
     	</td>
-    	<td>
+        <td v-if="page == 'kaartInvullen'">
+            <button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('fillOutBingocard', id)">Vul deze kaart in/Selecteer kaart</button>
+        </td>
+    	<td v-if="page == 'bingokaarten'">
     		<button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('showBingocardItems', id)">Toon bingokaart-items</button>
     	</td>
-    	<td>
+    	<td v-if="page == 'bingokaarten'">
     	    <button type="button" class="btn btn-danger bingo-danger-btn bingo-table-buttons" @click="removeBingocard">Verwijderen</button>
     	</td>
     </tr>

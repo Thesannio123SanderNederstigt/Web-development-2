@@ -87,7 +87,7 @@ export default defineComponent({
                                         <a :class="[currentPage == 'home' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" aria-current="page" @click="navToPage('/')">Start</a>
                                     </li>
                                     <li class="nav-item" id="nav-item-bingokaart">
-                                        <a :class="[currentPage == 'bingokaart' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/bingokaarten')">Bingokaarten</a>
+                                        <a :class="[currentPage == 'bingokaarten' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/bingokaarten')">Bingokaarten</a>
                                     </li>
                                     <li class="nav-item">
                                         <a :class="[currentPage == 'kaartInvullen' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/kaartInvullen')">Kaart invullen</a>

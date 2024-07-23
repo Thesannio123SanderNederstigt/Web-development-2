@@ -57,7 +57,7 @@ export default defineComponent({
 
                             <p v-if="userCreated" class="text-center text-secondary mb-4 website-logo-text successtext">Account succesvol aangemaakt!</p>
 
-                            <section v-if="displayButtons" class="row gy-2 gy-xxl-2 mt-2 flex-categories-container">
+                            <section v-if="displayButtons" class="row gy-2 gy-xxl-2 mt-2">
                                 <section class="col-12 col-md-6 col-xxl-6 mb-3">
                                     <section class="d-grid my-3">
                                         <button class="btn btn-primary btn-lg" type="button" @click="showLoginForm">Inloggen</button>

@@ -74,10 +74,10 @@ export default defineComponent({
             <section class="col-12">
                 <p class="m-0 text-secondary text-center warningtext" v-show="loginError">Onjuiste inloggegevens ingevoerd!</p>
             </section>
-        </section>
-        <section class="col-12">
-            <section class="d-grid my-3">
-                <button class="btn btn-primary btn-lg" type="submit" :disabled="!validInput">Log in</button>
+            <section class="col-12">
+                <section class="d-grid my-3">
+                    <button class="btn btn-primary btn-lg" type="submit" :disabled="!validInput">Log in</button>
+                </section>
             </section>
         </section>
     </form>
