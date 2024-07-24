@@ -100,19 +100,25 @@ export default defineComponent({
 
         <section class="col-12">
             <h2 class="mb-3 mt-4 table-title-text account-title-text">Gebruikersnaam </h2>
+            <!--<input type="text" class="form-control" name="account-username" id="account-username" 
+                v-model="username" @input="validate" :style="[updateError ? { 'border-color': '#E80F0F'} : {}]" />-->
             <input type="text" class="form-control" name="account-username" id="account-username" 
-                v-model="username" @input="validate" :style="[updateError ? { 'border-color': '#E80F0F'} : {}]" />
+                v-model="username" @input="validate" />
         </section>
         <section class="col-12">
             <h2 class="mb-3 mt-4 table-title-text account-title-text">Email adres </h2>
+            <!--<input type="email" class="form-control" id="account-email" placeholder="E-mailadres"
+                v-model="email" @input="validate" :style="[updateError ? { 'border-color': '#E80F0F'} : {}]" />-->
             <input type="email" class="form-control" id="account-email" placeholder="E-mailadres"
-                v-model="email" @input="validate" :style="[updateError ? { 'border-color': '#E80F0F'} : {}]" />
+                v-model="email" @input="validate" />
         </section>
 
         <section class="col-12 mt-3">
             <h2 class="mb-2 mt-4 table-title-text account-title-text">Wachtwoord wijzigen </h2>
+            <!--<input type="password" class="form-control" name="account-password" placeholder="Nieuw Wachtwoord" id="account-password"
+                    v-model="password" @input="validate" :style="[updateError ? { 'border-color': '#E80F0F'} : {}]" />-->
             <input type="password" class="form-control" name="account-password" placeholder="Nieuw Wachtwoord" id="account-password"
-                    v-model="password" @input="validate" :style="[updateError ? { 'border-color': '#E80F0F'} : {}]" />
+                 v-model="password" @input="validate" />
         </section>
 
         <section class="col-12">

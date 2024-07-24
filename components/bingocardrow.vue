@@ -47,18 +47,18 @@ export default defineComponent({
             }
         }
     },
-    emits: ['showBingocardItems', 'removeBingocard'],
+    emits: ['selectBingocard', 'showBingocardItems', 'removeBingocard'],
 });
 </script>
 
 <template>
     <tr class="bingocard-subtable-rows">
-        <td>
+    	<td v-if="page == 'bingokaarten'">
     	  <section class="align-items-center">
     		<textarea class="bingo-table-columns bingo-id-column">{{ id }}</textarea>
     	  </section>
     	</td>
-        <td>
+    	<td v-if="page == 'bingokaarten'">
             <section class="align-items-center">
                 <textarea class="bingo-table-columns bingo-id-column">{{ gebruikersId }}</textarea>
             </section>
@@ -69,14 +69,14 @@ export default defineComponent({
     	<td>
     		<textarea class="bingo-table-columns">{{ displaySize(formaat) }}</textarea>
     	</td>
-    	<td>
+    	<td v-if="page == 'bingokaarten'">
     	  <textarea class="bingo-table-columns">{{ aanmaakDatum }}</textarea>
     	</td>
-    	<td>
+    	<td v-if="page == 'bingokaarten'">
     		<textarea class="bingo-table-columns">{{ laatstBekeken }}</textarea>
     	</td>
         <td v-if="page == 'kaartInvullen'">
-            <button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('fillOutBingocard', id)">Vul deze kaart in/Selecteer kaart</button>
+            <button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('selectBingocard', id)">Kaart invullen</button> <!-- Vul deze kaart in/Kies deze kaart/Selecteer kaart -->
         </td>
     	<td v-if="page == 'bingokaarten'">
     		<button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('showBingocardItems', id)">Toon bingokaart-items</button>

@@ -193,3 +193,11 @@ footer {
 select, input, .bingo-table-buttons, .bingo-table-add-button {
     margin-bottom: 1.1rem !important;
 }
+
+.anchor-tag {
+    text-decoration: none !important;
+}
+
+.anchor-tag:hover {
+    cursor: pointer;
+}
