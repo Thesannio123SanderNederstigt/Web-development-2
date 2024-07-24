@@ -11,10 +11,10 @@ export function post(path: string, body: any): Promise<AxiosResponse<any>> {
     return axios.post(`${HOSTNAME}${path}`, JSON.stringify(body));
 }
 
-export function put(path: string, body: any): Promise<AxiosResponse<any>> { //Promise<null> {
+export function put(path: string, body: any): Promise<AxiosResponse<any>> {
     return axios.put(`${HOSTNAME}${path}`, JSON.stringify(body));
 }
 
-export function del(path: string): Promise<AxiosResponse<any>> { ////Promise<null> {
+export function del(path: string): Promise<AxiosResponse<any>> {
     return axios.delete(`${HOSTNAME}${path}`);
 }

@@ -15,13 +15,7 @@ export default defineComponent({
             size: 9,
             bingocard: this.bingokaart,
             dateTime: new Date(),
-            //thisDateTime: date("Y-m-d H:i:s"),
         }
-    },
-    created() {
-        //this.dateTime = Date.toLocaleString();; //.toLocaleString();
-        //this.thisDateTime.toLocaleString();
-        //this.dateTime = new Date();
     },
     methods: {
         createBingocard() {
@@ -29,9 +23,6 @@ export default defineComponent({
             this.$emit('addNewBingocard', this.bingocard);
 
             this.size = 9;
-            //this.dateTime = date("Y-m-d H:i:s");
-            //this.dateTime = Date.toISOString();
-            //this.dateTime = Date.toLocaleString();
             this.dateTime = new Date();
         }
     },
@@ -52,7 +43,6 @@ export default defineComponent({
 	   	</td>
 	   	<td>
 	   	    <select name="new-bingocard-sizes" v-model="size">
-	   		    <!--<option name="drie_bij_drie" value="9" selected>9</option>-->
                 <option name="drie_bij_drie" value="9">3x3</option>
 	   			<option name="vier_bij_vier" value="16">4x4</option>
 	   			<option name="vijf_bij_vijf" value="25">5x5</option>

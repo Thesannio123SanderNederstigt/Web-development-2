@@ -14,7 +14,6 @@ export default defineComponent({
     methods: {
         registerUser(){
             this.$emit('showRegisterForm');
-            //this.$router.push("/bla");
         },
         loginSubmit(): boolean {
             event?.preventDefault();
@@ -25,11 +24,6 @@ export default defineComponent({
         {
             try {
                 if (await this.$store.login({username: this.usernameInput, password: this.passwordInput})) {
-                    //console.log("test test, komen we hier?"); //het antwoord is ja
-                    //this.$router.push("/");
-                    //this.$router.push("/bla");
-
-                    //this.$router.replace({ path: '/'});
 
                     if(this.$store.$state.authToken !== "" && this.$store.$state.stateUser.id !== "")
                     {

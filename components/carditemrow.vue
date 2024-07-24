@@ -21,12 +21,8 @@ export default defineComponent({
             points: this.kaartItem.points,
             isPremiumItem: this.kaartItem.isPremiumItem,
             button: this.buttonType,
-            //userIsPremium: false,
         }
     },
-    /*created() {
-        //userIsPremium = this.$store.$state.stateUser.isPremium;
-    },*/
     methods: {
         displayCategory(categorie: any)
         {

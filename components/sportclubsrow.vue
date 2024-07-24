@@ -1,17 +1,14 @@
 <script lang="ts">
 import { defineComponent, type PropType } from "vue";
-//import { defineComponent } from "vue";
-//import { post, del } from '@/src/requests';
 import { type Sportsclub } from "@/src/Sportsclub";
 
 export default defineComponent({
     props: {
         sportsclub: {
             type: Object as PropType<Sportsclub>,
-            //type: Sportsclub
             required: true,
         },
-        buttonType: { //'delete' voor userSportclubs, 'add' voor otherSportsclubs, dan weet je of je de toevoegen of verwijder knop moet weergeven met v-if voor een data returned gekoppeld aan deze property (nice)
+        buttonType: {
             type: String,
             required: true,
         }

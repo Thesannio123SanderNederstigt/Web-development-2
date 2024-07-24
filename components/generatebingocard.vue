@@ -34,7 +34,6 @@ export default defineComponent({
             <h2 class="mt-4 mb-3 website-logo-text table-title-text" id="bingocards-generate-title-text">Volledige bingokaart genereren</h2>
             <h2 class="mb-4 website-logo-text table-title-text" id="bingocards-generate-format-title-text">Selecteer formaat:</h2>
             <select name="new-bingocard-sizes" v-model="size">
-    	        <!--<option name="drie_bij_drie" value="9" selected>3x3</option>-->
                 <option name="drie_bij_drie" value="9">3x3</option>
     		    <option name="vier_bij_vier" value="16">4x4</option>
     		    <option name="vijf_bij_vijf" value="25">5x5</option>
@@ -58,5 +57,4 @@ export default defineComponent({
     color: #1f0c6a !important; 
     padding: 0 !important;
 }
-
 </style>

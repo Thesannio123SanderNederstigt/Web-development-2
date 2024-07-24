@@ -21,7 +21,7 @@ footer {
 }
 
 .headernavbar {
-    background-color: #4472C4 !important; //#002060
+    background-color: #4472C4 !important;
     font-family: 'Berlin Sans FB' !important;
     color: white !important;
     border: none !important;
@@ -34,11 +34,11 @@ footer {
 }
 
 #offcanvas-bar-header {
-    background-color: #4472C4 !important; //#1f0c6a 
+    background-color: #4472C4 !important;
 }
 
 #offcanvas-bar-body {
-    background-color: #1f0c6a !important; //#2d60b9
+    background-color: #1f0c6a !important;
 }
 
 @media screen and (min-width: 992px)
@@ -150,12 +150,10 @@ footer {
     resize: none !important;
     width: 100% !important;
     word-wrap: break-word;
-    //word-break: break-all;
 }
 
 .bingo-id-column {
     min-width: 10rem !important;
-    //margin-right: 1rem !important;
 }
 
 .bingo-email-column {
@@ -181,14 +179,6 @@ footer {
 .table>:not(caption)>*>* {
     padding: 1rem 0.5rem !important;
 }
-
-/*#bingocards-table-section, #carditems-table-section, #sportsclubs-table-section {
-    display: none !important;
-}
-
-.bingo-subtable-text {
-    display: flex !important;
-}*/
 
 select, input, .bingo-table-buttons, .bingo-table-add-button {
     margin-bottom: 1.1rem !important;

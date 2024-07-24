@@ -1,17 +1,10 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import SvgImage from "~/components/svgimage.vue";
-//import { SvgImage } from '@/components/svgimage.vue';
-
-
-//import invulUrl from '@/assets/categorie-kaart-invullen.svg?component';
-
-//import iconUrl from './my-icon.svg?url'
 
 export default defineComponent({
     components: {
         SvgImage
-        //invulUrl
     },
     props: {
         category: {
@@ -72,8 +65,6 @@ export default defineComponent({
 			    <section class="card-body position-relative card-categories">
 				    <figure class="m-0 p-0">
                         <SvgImage class="category-comp" :name="catImage" loading="lazy" :alt="catName + ' categorie'" type="image/svg+xml" />
-                        <!--<invulUrl class="img-fluid" loading="lazy" :alt="catName + ' categorie'" /> -->
-					    <!--<img class="img-fluid" loading="lazy" :src="`@/assets/${catImage.toLowerCase()}.svg`" :alt="catName + ' categorie'" width="172" type="image/svg+xml">--> <!--src="@/assets/categorie-kaart-invullen.svg"-->
 					    <figcaption class="mb-0 mt-4 p-0">
 					        <h4 class="categorie-text mb-2">{{ catName }}</h4>
 					    </figcaption>
@@ -99,10 +90,6 @@ export default defineComponent({
     color: #ffffff !important;
     font-size: 2em !important;
 }
-
-/*.categorie-text:hover {
-    color: #f7d012 !important;
-}*/
 
 .anchor-tag {
     text-decoration: none !important;

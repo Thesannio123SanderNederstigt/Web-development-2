@@ -3,7 +3,8 @@ import { defineComponent, type PropType } from "vue";
 
 import BingocardItem from "@/components/bingocarditem.vue";
 
-import { get, post, put, del } from '@/src/requests';
+import { put } from '@/src/requests';
+
 import { type Bingocard } from "@/src/Bingocard";
 import { type cardItem } from "@/src/cardItem";
 
@@ -31,14 +32,6 @@ export default defineComponent({
             vinkCheck: true,
         }
     },
-    /*beforeCreate() {
-        //vullen van de bingocardItems array
-        if(this.bingokaart.items != undefined) {
-            this.bingokaart.items.forEach((cardItem: cardItem) => {
-                this.bingocardItems.push(cardItem);
-            });
-        }
-    },*/
     created() {
         try {
             //vullen van de bingocardItems array
@@ -47,10 +40,6 @@ export default defineComponent({
                     this.bingocardItems.push(cardItem);
                 });
             }
-
-            /*console.log(`bingocard Items gevuld: ${JSON.stringify(this.bingocardItems)}`);
-            console.log(`bingocard size: ${this.formaat}`);*/
-            //this.createBingocardItems();
             this.updateLastAccessed();
             this.bingoCheck();
 
@@ -59,9 +48,6 @@ export default defineComponent({
             return false;
         }
     },
-    /*beforeUpdate() {
-        this.createBingocardItems();
-    },*/
     methods: {
         async updateLastAccessed() {
             try {
@@ -74,10 +60,8 @@ export default defineComponent({
 
                 if(result == true) {
                     return true;
-                    //console.log('last accessed/laatst bekeken info van de kaart met succes bijgewerkt!');
                 } else {
                     return false;
-                    //console.log('er is een fout opgetreden in het bijwerken van de laatst bekeken informatie van deze bingokaart!');
                 }
 
             } catch (e) {
@@ -92,25 +76,22 @@ export default defineComponent({
                 let stateIndex = this.$store.$state.stateUser.bingocards.findIndex(b => b.id == this.id);
 
                 let index = this.bingocardItems.findIndex(c => c.id == id);
-                //let cardItem = this.bingocardItems[index];
 
                 if(this.$store.$state.stateUser.bingocards[stateIndex].score != undefined && this.bingocardItems[index].points != undefined) {
                     if(this.bingocardItems[index].checkedOff) {
                         this.bingocardItems[index].checkedOff = false;
                         
                         if(!(this.$store.$state.stateUser.bingocards[stateIndex].score <= 0)) {
-                            this.$store.$state.stateUser.bingocards[stateIndex].score -= this.bingocardItems[index].points; //cardItem.points;
+                            this.$store.$state.stateUser.bingocards[stateIndex].score -= this.bingocardItems[index].points;
                         }
 
                     } else {
-                        //cardItem.checkedOff = true;
-                        this.bingocardItems[index].checkedOff = true; //if eerder false, dan nu true, al true, dan weer op false zetten (toch? als je iets wilt unchecken dus)
-                        this.$store.$state.stateUser.bingocards[stateIndex].score += this.bingocardItems[index].points; //cardItem.points;
+                        this.bingocardItems[index].checkedOff = true;
+                        this.$store.$state.stateUser.bingocards[stateIndex].score += this.bingocardItems[index].points;
                     }
 
-                    //bingokaart score update API call
-
-                    let res = await put(`/bingocard/update/${this.id}`, {   //this.$store.$state.stateUser.id
+                    //update bingocard API call methode uitwerking
+                    let res = await put(`/bingocard/update/${this.id}`, {
                             userId: this.gebruikersId,
                             score: this.$store.$state.stateUser.bingocards[stateIndex].score,
                         }).then((res) => { return JSON.parse(res.data)});
@@ -120,20 +101,12 @@ export default defineComponent({
                     }
 
                     if(res.id != '') {
-                        //console.log(`bingokaart update response: ${JSON.stringify(res)}`);
                         this.$store.$state.stateUser.bingocards[stateIndex].items = this.bingocardItems;
 
                         this.bingoCheck();
 
                         return true;
                     }
-
-                    //update de bingokaart voor/van de state (aan het einde, na de score update ook denk ik/lijkt me)
-                    //let stateIndex = this.$store.$state.stateUser.bingocards.findIndex(b => b.id == this.id);
-                    
-                    //this.$store.$state.stateUser.bingocards[stateIndex].items = this.bingocardItems;
-
-                    //console.log(`score updaten voor kaart met item content: ${this.bingocardItems[index].content}`);
                 }
 
             } catch (e) {
@@ -164,66 +137,30 @@ export default defineComponent({
                         break;
                 }
 
-                /*console.log(`de indexnumbers: ${indexNumbers}`);
-                console.log(`de indexnumbers (stringified): ${JSON.stringify(indexNumbers)}`);*/
-
                 indexNumbers.forEach((item: any) => {
-
-                    /*console.log(`het item: ${item}`);
-                    console.log(`het item stringified: ${JSON.stringify(item)}`);*/
 
                     this.vinkCheck = true;
 
                     for(var i = 0; i < item.length; i++) {
 
                         if(bingocardItems[item[i]] != undefined) {
-                            //console.log(`wat is dit getal: ${item[i]}`);
-                            //console.log(`is dit item aangevinkt?: ${bingocardItems[item[i]].checkedOff}`);
+
                             if(bingocardItems[item[i]].checkedOff != undefined && bingocardItems[item[i]].checkedOff == false) {
-                                //console.log(`niet aangevinkt: dus geen bingo toch? item: ${bingocardItems[item[i]].checkedOff}`);
                                 this.vinkCheck = false;
-                            }/* else vinkCheck = true */
+                            }
+
                         } else {
                             this.vinkCheck = false;
                         }
                     }
 
-                    //console.log(`true of false?: ${this.vinkCheck}`);
                     if(this.vinkCheck == true) {
                         this.numberOfBingos++;
                     }
-
-                    /*item.forEach((getal: number) => {
-                        if(bingocardItems[getal].checkedOff){}
-                    });*/
                 });
             }
 
         }
-        /*createBingocardItems() {
-            this.bingocardItems = [];
-
-            let stateIndex = this.$store.$state.stateUser.bingocards.findIndex(b => b.id == this.id);
-            this.bingokaart = this.$store.$state.stateUser.bingocards[stateIndex];
-
-            console.log(`bingocard Items leeg: ${JSON.stringify(this.bingocardItems)}`);
-            console.log(`stateg bingokaart: ${JSON.stringify(this.$store.$state.stateUser.bingocards[stateIndex])}`);
-            console.log(`stateg gevulde bingokaart: ${JSON.stringify(this.bingokaart)}`);
-
-            //vullen van de bingocardItems array
-            if(this.bingokaart.items != undefined) {
-                this.bingokaart.items.forEach((cardItem: cardItem) => {
-                    this.bingocardItems.push(cardItem);
-                });
-            }
-            console.log(`bingocard Items gevuld: ${JSON.stringify(this.bingocardItems)}`);
-            //uitvoeren/call naar onderstaande updateAccessed() (lastAccessedOn()) methode
-            console.log(`bingocard size: ${this.formaat}`);
-        }*/
-
-        //lastAccessedOn update method
-        //scoreUpdate/itemCheck methode (die ook onderaan naar de bingoCheck() methode gaat/deze laat uitvoeren)
-        //bingoCheck() methode (duh)
     }
 });
 </script>
@@ -235,16 +172,11 @@ export default defineComponent({
 
     <section class="row gy-2 gy-xxl-2 mt-2 mb-5 bingocard-container">
         <BingocardItem v-for="kaartItem in bingocardItems" :cardItem="kaartItem" :size="formaat" @updateCardScore="updateCardScore" />
-        <!--<section class="col-12 col-md-6 col-lg-4 col-xxl-6">
-            <BingocardItem v-for="kaartItem in bingocardItems" :cardItem="kaartItem" :size="formaat" />
-            <BingocardItem v-for="kaartItem in bingocardItems" :cardItem="kaartItem" />
-        </section>-->
     </section>
 </template>
 
 <style scoped>
 .bingocard-container {
-    /*max-width: 1200px !important;*/
     max-width: 1100px !important;
 }
 

@@ -21,12 +21,7 @@ export default defineComponent({
         {
             try {
                 let res = await put(`/user/update/${this.$store.$state.stateUser.id}`, { 
-                    /*username: this.$store.$state.stateUser.username,
-                    email: this.$store.$state.stateUser.email,
-                    isAdmin: this.$store.$state.stateUser.isAdmin,*/
                     isPremium: 1
-                    /*cardsAmount: this.$store.$state.stateUser.cardsAmount,
-                    sharedCardsAmount: this.$store.$state.stateUser.sharedCardsAmount*/
                 }).then((res) => { return JSON.parse(res.data)});
 
                 if(res.errorMessage) {

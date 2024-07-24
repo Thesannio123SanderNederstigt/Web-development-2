@@ -2,11 +2,10 @@
 import { defineComponent } from "vue"
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
-import accountInfo from "../components/accountInfo.vue"; //@/~
+import accountInfo from "@/components/accountInfo.vue";
 
-//import { get, put, del } from '@/src/requests'; //kijken of get request nodig is of niet
 import { put, del } from '@/src/requests';
-import { type User } from "@/src/User"; //kijken of dit nodig is of niet
+import { type User } from "@/src/User";
 
 export default defineComponent({
     components: {
@@ -32,7 +31,6 @@ export default defineComponent({
         this.user = this.$store.$state.stateUser;
     },
     methods: {
-        //updateUser & removeUser ? (en getUser voor alle info?)
         async updateUser(user: User)
         {
             try {
@@ -53,7 +51,6 @@ export default defineComponent({
 
                     console.log(`response: ${JSON.stringify(res)}`);
                     this.user = user;
-                    //this.$store.$state.stateUser.username = user.username;
                     this.$store.$state.stateUser = user;
                     this.updateSuccess = true;
                     return true;
@@ -73,7 +70,6 @@ export default defineComponent({
                 }
 
                 if(result == true) {
-                    //in essentie een logout functie hier (wellicht nog $emitten of verwijzen naar de userLogout() functie van de Header?)
                     sessionStorage.clear();
                     this.$store.$reset();
 
@@ -104,9 +100,7 @@ export default defineComponent({
                 <section class="col-12">
                     <p class="m-0 text-secondary text-start errortext" v-if="deleteError">Uw account kon niet succesvol worden verwijderd!</p>
                 </section>
-
-                <!--<accountInfo :gebruiker="user" :updateError="updateError" :updateSuccess="updateSuccess" :deleteError="deleteError" @updateUser="updateUser" @removeUser="removeUser" /> -->
-
+                
                 <accountInfo :gebruiker="user" @updateUser="updateUser" @removeUser="removeUser" />
             
             </section>

@@ -1,7 +1,7 @@
 <script lang="ts">
 import { defineComponent } from "vue";
 import loginForm from "@/components/loginForm.vue";
-import registerForm from "~/components/registerForm.vue";
+import registerForm from "@/components/registerForm.vue";
 
 export default defineComponent({
     components: {
@@ -21,7 +21,6 @@ export default defineComponent({
         if (this.$store.$state.authToken !== "") {
             this.$router.push('/');
         }
-        //this.loginError = false;
     },
     methods: {
         showLoginForm() {

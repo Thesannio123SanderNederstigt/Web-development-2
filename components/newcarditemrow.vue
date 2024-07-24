@@ -63,7 +63,6 @@ export default defineComponent({
     		<select v-if="userIsPremium" name="new-premium-bingocard-items" v-model="isPremiumItem">
                 <option name="false" value="0" selected>Nee</option>
     			<option name="true" value="1">Ja</option>
-                <!--<option name="false" value="0">Nee</option>-->
     		</select>
             <section v-else>
                 <h6 class="bingo-nieuw-header-text">Nee</h6>
@@ -73,13 +72,6 @@ export default defineComponent({
     		<button type="button" class="btn btn-success bingo-table-add-button" id="new-carditem-button" @click="createCardItem">Voeg toe</button>
     	</td>
     </tr>
-
-    <!--
-    <section v-else> //v-else="userIspremium"
-        <h6 class="bingo-nieuw-header-text">Nee</h6>
-    </section>
-    -->
-
 </template>
 
 <style scoped>

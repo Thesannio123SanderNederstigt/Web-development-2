@@ -15,29 +15,14 @@ export default defineComponent({
             description: "",
             foundedOn: "",
             membersAmount: 0,
-            //sportsclub: Object as PropType<Sportsclub>
             sportsclub: this.sportclub,
-            //Sportclub: Object as PropType<Sportsclub>
         }
     },
     methods: {
         createSportsclub() 
         {
-            //1
-            /*
-            this.sportclub.clubname = this.clubname;
-            this.sportclub.description = this.description;
-            this.sportclub.foundedOn = this.foundedOn;
-            this.sportclub.membersAmount = this.membersAmount;
-
-            this.$emit('addNewSportsclub', this.sportclub);
-            */
             this.sportsclub = { id: '', clubname: this.clubname, description: this.description, foundedOn: this.foundedOn, membersAmount: this.membersAmount }
             this.$emit('addNewSportsclub', this.sportsclub);
-
-            //2
-            //Sportsclub sportclub = { clubname: this.clubname, description: this.description, foundedOn: this.foundedOn, membersAmount: this.membersAmount };
-            //this.$emit('addNewSportsclub', sportclub);
 
             this.clubname = "";
             this.description = "";

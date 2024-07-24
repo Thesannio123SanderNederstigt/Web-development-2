@@ -76,7 +76,7 @@ export default defineComponent({
     		<textarea class="bingo-table-columns">{{ laatstBekeken }}</textarea>
     	</td>
         <td v-if="page == 'kaartInvullen'">
-            <button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('selectBingocard', id)">Kaart invullen</button> <!-- Vul deze kaart in/Kies deze kaart/Selecteer kaart -->
+            <button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('selectBingocard', id)">Kaart invullen</button>
         </td>
     	<td v-if="page == 'bingokaarten'">
     		<button type="button" class="btn btn-primary bingo-table-buttons" @click="$emit('showBingocardItems', id)">Toon bingokaart-items</button>

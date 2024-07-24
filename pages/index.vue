@@ -3,8 +3,7 @@
 import { defineComponent } from "vue"
 import Header from "@/components/header.vue";
 import Footer from "@/components/footer.vue";
-import HomepageCategory from "~/components/homepagecategory.vue";
-//import HomepageCategory from "@/components/homepagecategory.vue";
+import HomepageCategory from "@/components/homepagecategory.vue";
 
 export default defineComponent({
     components: {
@@ -13,25 +12,17 @@ export default defineComponent({
         HomepageCategory,
     },
     data: () => ({
-        //categories: [] as number[],
         categories: [0,1,2,3],
     }),
-    /*data() {
-        return {
-            //categories: [] as number[],
-            categories: [0,1,2,3],
-        }
-    },*/
     beforeCreate() {
-        if (this.$store.$state.authToken === "") {
-            this.$router.replace({ path: "/login"/*, query: { next: "/" }*/ });
-        } else if (this.$store.$state.authToken != "") {
+        if (this.$store.getToken === "") {
+            this.$router.replace({ path: "/login" });
+        } else if (this.$store.getToken != "") {
             this.$store.autoLogin();
         }
     },
     created() {
         this.$store.$state.currentPage = 'home';
-        //this.categories = [0,1,2,3];
     },
     methods: {
         goToPage(page: string)
@@ -68,11 +59,4 @@ body {
     flex-direction: column;
     height: 100vh;
 }
-/*a:-webkit-any-link:hover {
-    cursor: pointer;
-}
-
-a:hover {
-    cursor: pointer;
-}*/
 </style>

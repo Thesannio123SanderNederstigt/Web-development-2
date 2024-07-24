@@ -1,5 +1,4 @@
 <script lang="ts">
-
 import { defineComponent } from "vue";
 import { post } from '@/src/requests';
 
@@ -20,7 +19,7 @@ export default defineComponent({
         {
             this.$emit('showLoginForm');
         },
-        displayUserCreated() { //call deze methode na succesvolle uitvoer van de api methode om nieuwe gebruiker aan te maken
+        displayUserCreated() {
             this.$emit('showUserCreated');
         },
         registerSubmit(): boolean {
@@ -31,9 +30,6 @@ export default defineComponent({
         async createUser()
         {
             try {
-                //if success: this.displayUserCreated();
-                //if( await post('/user/create', { username: this.newUserNameInput, password: this.newPasswordInput, email: this.newEmailInput }).then((response) => { return JSON.parse(response.data)})) {
-                //if( await post('/user/create', { username: this.newUserNameInput, password: this.newPasswordInput, email: this.newEmailInput })) {
                 let res = await post('/user/create', { 
                     username: this.newUserNameInput, 
                     password: this.newPasswordInput, 
@@ -45,9 +41,7 @@ export default defineComponent({
                     return false;
                 }
 
-                //if(response !== null && response !== "" && response.id !== ""){
                 if(res != null && res.id != "") {
-                    //console.log(res);
                     this.displayUserCreated();
                 } else {
                     this.registerError = true;
