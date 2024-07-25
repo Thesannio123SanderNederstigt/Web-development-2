@@ -210,7 +210,7 @@ export default defineComponent({
                             let cardItem = this.allCardItems[randomIndex];
 
                             //bij laatste item in allCardItems array, voeg toe en exit hierna (dus uiteindelijk: voeg toe, totdat de items op zijn of de size for loop wel is gevuld)
-                            if(randomIndex == 0 && this.allCardItems.length == 1) { //if(randomIndex === 0 && this.allCardItems.length === 1) {
+                            if(randomIndex == 0 && this.allCardItems.length == 1) {
                                 
                                 await this.addBingocardItem(cardItem.id);
 
@@ -327,7 +327,6 @@ export default defineComponent({
                         }
                     }
                 }
-
             } catch (e) {
                 console.error(e);
                 return false;
@@ -422,7 +421,7 @@ export default defineComponent({
                     </section>
 
                     <section v-if="addItemAllowed">
-                        <section class="row container"> <!--row justify-content-md-center || container bingo-subtable-text-->
+                        <section class="row container">
                             <h2 class="mb-4 mt-4 website-logo-text table-title-text">Andere Kaart-items</h2>
                         </section>
 
