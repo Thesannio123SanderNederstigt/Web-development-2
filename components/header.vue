@@ -94,7 +94,7 @@ export default defineComponent({
                                         <a :class="[currentPage == 'account' ? 'nav-link navbar-linkitems active' : 'nav-link navbar-linkitems']" @click="navToPage('/account')">Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <button v-if="!userIsPremium" type="button" class="btn btn-warning bingo-premium-btn" id="premium-button" name="premium" @click="addPremiumFeatures">Premium aanschaffen</button>
+                                        <button v-if="!$store.$state.stateUser.isPremium" type="button" class="btn btn-warning bingo-premium-btn" id="premium-button" name="premium" @click="addPremiumFeatures">Premium aanschaffen</button>
                                     </li>
                                 </ul>
                                 <button type="button" class="btn btn-danger bingo-danger-btn" id="logout-button" name="logout" @click="userLogout">Uitloggen</button>

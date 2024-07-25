@@ -285,7 +285,7 @@ export default defineComponent({
 
                     }
 
-                    if(bingocard.items.length == bingocard.size) {
+                    if(bingocard.items.length >= bingocard.size) {
                             this.addItemAllowed = false;
                     }
                 }
@@ -320,7 +320,12 @@ export default defineComponent({
                     this.userBingocards[userIndex].items = this.bingocardItems;
                     this.$store.$state.stateUser.bingocards = this.userBingocards;
 
-                    this.addItemAllowed = true;
+                    if(this.userBingocards[userIndex].size != undefined && this.userBingocards[userIndex].items != undefined) {
+
+                        if(this.userBingocards[userIndex].items.length < this.userBingocards[userIndex].size) {
+                            this.addItemAllowed = true;
+                        }
+                    }
                 }
 
             } catch (e) {

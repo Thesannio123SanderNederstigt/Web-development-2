@@ -98,7 +98,7 @@ export default defineComponent({
         </section>
         <section class="col-12">
             <h2 class="mt-4 table-title-text account-title-text">Premium? </h2>
-            <h3 class="mb-3 table-title-text">{{ displayBool(isPremium) }}</h3>
+            <h3 class="mb-3 table-title-text">{{ displayBool($store.$state.stateUser.isPremium) }}</h3>
         </section>
 
         <section class="col-12">

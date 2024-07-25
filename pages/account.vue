@@ -34,8 +34,6 @@ export default defineComponent({
         async updateUser(user: User)
         {
             try {
-                console.log(`attempting to update user: ${JSON.stringify(user)}`);
-
                 let res = await put(`/user/update/${user.id}`, { 
                         username: user.username,
                         password: user.password,
@@ -48,8 +46,6 @@ export default defineComponent({
                 }
 
                 if(res.id != '') {
-
-                    console.log(`response: ${JSON.stringify(res)}`);
                     this.user = user;
                     this.$store.$state.stateUser = user;
                     this.updateSuccess = true;
@@ -100,7 +96,7 @@ export default defineComponent({
                 <section class="col-12">
                     <p class="m-0 text-secondary text-start errortext" v-if="deleteError">Uw account kon niet succesvol worden verwijderd!</p>
                 </section>
-                
+
                 <accountInfo :gebruiker="user" @updateUser="updateUser" @removeUser="removeUser" />
             
             </section>

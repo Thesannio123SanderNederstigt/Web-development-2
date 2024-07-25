@@ -20,6 +20,7 @@ export default defineComponent({
         selectedBingocard: {} as Bingocard,
         displayBingoLayout: false,
         displayCardSelect: false,
+        displayNoCardsYet: false,
     }),
     beforeCreate() {
         if (this.$store.getToken === "") {
@@ -33,7 +34,11 @@ export default defineComponent({
 
         this.userBingocards = this.$store.$state.stateUser.bingocards;
 
-        this.displayCardSelect = true;
+        if(this.userBingocards.length > 0) {
+            this.displayCardSelect = true;
+        } else {
+            this.displayNoCardsYet = true;
+        }
     },
     methods: {
         selectBingocard(id: string) {
@@ -102,6 +107,10 @@ export default defineComponent({
                         </table>
                     </section>
                     
+                </section>
+                
+                <section v-if="displayNoCardsYet">
+                    <h1 class="mt-4 mb-3 website-logo-text">Je hebt nog geen bingokaarten om in te vullen, maak eerst een kaart aan op de bingokaarten pagina</h1>
                 </section>
 
             </section>
